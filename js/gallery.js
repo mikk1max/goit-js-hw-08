@@ -80,12 +80,9 @@ galleryList.insertAdjacentHTML("afterbegin", items)
 
 galleryList.addEventListener("click", (event) => {
     event.preventDefault()
-    const targetImg = event.target
-    if (targetImg.nodeName === "IMG") {
-        // console.log(event.target.dataset);
-        const imgSource = targetImg.dataset.source
 
-        const instance = basicLightbox.create(`<img src="${imgSource}" alt="${targetImg.alt}" />`)
+    if (event.target.nodeName === "IMG") {
+        const instance = basicLightbox.create(`<img src="${event.target.dataset.source}" alt="${event.target.alt}" />`)
         instance.show()
     }
 })
